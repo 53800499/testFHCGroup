@@ -14,10 +14,11 @@
             <h2 class="text-2xl font-semibold text-center mb-6">Menu</h2>
             <ul>
                 <li><a href="/" class="block py-2 px-4 hover:bg-gray-600">Dashboard</a></li>
-                <li><a href="{{ route('employers.index') }}" class="block py-2 px-4 hover:bg-gray-600">Listes des employers</a></li>
                 <li><a href="{{ route('employers.create') }}" class="block py-2 px-4 hover:bg-gray-600">Ajouter employer</a></li>
-                <li><a href="" class="block py-2 px-4 hover:bg-gray-600">Listes des emplois</a></li>
-                <li><a href="" class="block py-2 px-4 hover:bg-gray-600">Ajouter emploi</a></li>
+                <li><a href="{{ route('employers.index') }}" class="block py-2 px-4 hover:bg-gray-600">Listes des employers</a></li>
+                <li><a href="{{ route('emplois.create') }}" class="block py-2 px-4 hover:bg-gray-600">Ajouter emploi</a></li>
+                <li><a href="{{ route('emplois.index') }}" class="block py-2 px-4 hover:bg-gray-600">Listes des emplois</a></li>
+                <li><a href="{{ route('emplois.index') }}" class="block py-2 px-4 hover:bg-gray-600">Logout</a></li>
             </ul>
         </div>
 

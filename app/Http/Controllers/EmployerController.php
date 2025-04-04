@@ -16,7 +16,7 @@ class EmployerController extends Controller
     public function index()
     {
         $employers = Employer::all(); // Récupérer tous les employeurs
-        return view('admin.listeEmployer', compact('employers'));
+        return view('employers.listeEmployer', compact('employers'));
     }
 
 /*
@@ -43,7 +43,7 @@ public function index(Request $request)
     // Afficher le formulaire pour créer un nouvel employeur
     public function create()
     {
-        return view('admin.storeEmployer'); // Vue pour ajouter un employeur
+        return view('employers.storeEmployer'); // Vue pour ajouter un employeur
     }
 
     // Enregistrer un nouvel employeur dans la base de données
@@ -79,7 +79,7 @@ public function index(Request $request)
     public function edit($id)
     {
         $employer = Employer::findOrFail($id); // Trouver l'employeur par ID
-        return view('admin.editEmployer', compact('employer'));
+        return view('employers.editEmployer', compact('employer'));
     }
 
     // Mettre à jour les informations d'un employeur existant

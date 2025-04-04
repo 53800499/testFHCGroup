@@ -21,7 +21,7 @@ class CreateEmployersTable extends Migration
             $table->string('departement');
             $table->date('hire_date');
             $table->integer('salary');
-            $table->enum('statut', ['actif', 'en congé', 'licencié']);
+            $table->enum('statut', ['actif', 'en_conge', 'licenciee']);
             $table->timestamps(); // Ajout de la colonne created_at et updated_at
 
         });

@@ -9,7 +9,11 @@
 
     <div class="container mx-auto my-8">
         <h1 class="text-3xl font-bold mb-6">Créer un Employeur</h1>
-
+        @if (session('success'))
+            <div class="bg-green-200 p-4 mb-4 rounded">
+                {{ session('success') }}
+            </div>
+        @endif
         <!-- Affichage des erreurs de validation -->
         @if ($errors->any())
             <div class="bg-red-200 p-4 mb-4 rounded">
@@ -68,8 +72,8 @@
                     <label for="statut" class="block text-sm font-medium text-gray-700">Statut</label>
                     <select id="statut" name="statut" class="mt-1 block w-full p-2 border border-gray-300 rounded" required>
                         <option value="actif" {{ old('statut') == 'actif' ? 'selected' : '' }}>Actif</option>
-                        <option value="inactif" {{ old('statut') == 'inactif' ? 'selected' : '' }}>En congé</option>
-                        <option value="inactif" {{ old('statut') == 'inactif' ? 'selected' : '' }}>licencié</option>
+                        <option value="en_conge" {{ old('statut') == 'en_conge' ? 'selected' : '' }}>En congé</option>
+                        <option value="licencie" {{ old('statut') == 'licencie' ? 'selected' : '' }}>licencié</option>
                     </select>
                 </div>
 
