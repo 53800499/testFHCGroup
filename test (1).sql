@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 04 avr. 2025 à 14:11
+-- Généré le : ven. 04 avr. 2025 à 16:59
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.2.0
 
@@ -24,6 +24,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `emplois`
+--
+
+DROP TABLE IF EXISTS `emplois`;
+CREATE TABLE IF NOT EXISTS `emplois` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `requirements` text NOT NULL,
+  `salary_range` varchar(100) DEFAULT NULL,
+  `location` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `status` enum('brouillon','publiee','fermee') DEFAULT 'brouillon',
+  `recruiter_id` bigint UNSIGNED NOT NULL,
+  `deadline` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_recruiter` (`recruiter_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `emplois`
+--
+
+INSERT INTO `emplois` (`id`, `title`, `description`, `requirements`, `salary_range`, `location`, `department`, `status`, `recruiter_id`, `deadline`, `created_at`, `updated_at`) VALUES
+(2, 'aaaaaaaa', 'aaaaaaa', 'Oui', 'zzzzzzzzz', 'aaaaaaaaaa', 'aaaaaaaa', 'brouillon', 5, '2025-05-02', '2025-04-04 15:37:41', '2025-04-04 15:37:41');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `employers`
 --
 
@@ -36,19 +67,21 @@ CREATE TABLE IF NOT EXISTS `employers` (
   `departement` varchar(255) NOT NULL,
   `hire_date` date NOT NULL,
   `salary` int NOT NULL,
-  `statut` enum('actif','inactif') NOT NULL,
+  `statut` enum('actif','en_conge','licenciee') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'actif',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `employers`
 --
 
 INSERT INTO `employers` (`id`, `nom`, `email`, `position`, `departement`, `hire_date`, `salary`, `statut`, `created_at`, `updated_at`) VALUES
-(4, 'Bassirou', 'bassirousikirou5@gmail.com', '45', 'Atacora', '2025-04-06', 12355555, 'inactif', '2025-04-04 12:26:20', '2025-04-04 13:01:52'),
+(10, 'Arthurs', 'bassirousikirou59dd@gmail.com', '45', 'Mono', '2025-04-12', 56453, '', '2025-04-04 14:20:44', '2025-04-04 14:20:44'),
+(12, 'aaaaaaaaa', 'bassiroeeeeeeeusikirou59@gmail.com', '45', 'Mono', '2025-04-11', 12, 'actif', '2025-04-04 14:49:36', '2025-04-04 14:49:36'),
+(4, 'Bassirou', 'bassirousikirou5@gmail.com', '45', 'Atacora', '2025-04-06', 12355555, '', '2025-04-04 12:26:20', '2025-04-04 13:01:52'),
 (5, 'Arthurs', 'bassirousikirou9@gmail.com', '45', 'Atacora', '2025-04-13', 45565, 'actif', '2025-04-04 12:27:40', '2025-04-04 12:27:40'),
 (6, 'Arthurs', 'bassirousikirou90@gmail.com', '45', 'Atacora', '2025-04-13', 45565, 'actif', '2025-04-04 12:29:05', '2025-04-04 12:29:05'),
 (7, 'eeeeee', 'bassirousikirou500009@gmail.com', '45', 'Atacora', '2025-04-04', 21555456, 'actif', '2025-04-04 12:31:24', '2025-04-04 12:31:24'),
