@@ -57,7 +57,7 @@ public function index(Request $request)
             'departement' => 'required|string|max:255',
             'hire_date' => 'required|date',
             'salary' => 'required|integer',
-            'statut' => 'required|in:actif,inactif',
+            'statut' => 'required|in:actif,licenciee','en_conge',
         ]);
 
         // Créer un nouvel employeur

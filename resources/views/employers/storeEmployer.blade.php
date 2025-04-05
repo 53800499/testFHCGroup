@@ -73,7 +73,7 @@
                     <select id="statut" name="statut" class="mt-1 block w-full p-2 border border-gray-300 rounded" required>
                         <option value="actif" {{ old('statut') == 'actif' ? 'selected' : '' }}>Actif</option>
                         <option value="en_conge" {{ old('statut') == 'en_conge' ? 'selected' : '' }}>En congé</option>
-                        <option value="licencie" {{ old('statut') == 'licencie' ? 'selected' : '' }}>licencié</option>
+                        <option value="licenciee" {{ old('statut') == 'licenciee' ? 'selected' : '' }}>licencié</option>
                     </select>
                 </div>
 
